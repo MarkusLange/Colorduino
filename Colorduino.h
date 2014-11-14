@@ -176,6 +176,10 @@ class ColorduinoObject {
     void HSVtoRGB(void *vRGB, void *vHSV);
     void morphinit();
     void plasma_morph();
+    void Create_Letter(int letters[][5], int drift, int tc[3]);
+    void Scroll_Text(String text, int speed, int tc[3]);
+    
+    void attachbackgroundcolor (void (*)(void));
     
     float dist(float a, float b, float c, float d) {
       return sqrt((c - a)*(c - a) + (d - b)*(d - b));

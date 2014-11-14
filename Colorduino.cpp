@@ -19,11 +19,18 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "Colorduino.h"
+#include "font.h"
 
 void ColorduinoObject::LED_Delay(unsigned char i) {
   unsigned int y;
   y = i * 10;
   while(y--);
+}
+
+void (*backgroundFunc)(void);
+
+void ColorduinoObject::attachbackgroundcolor(void (*userFunction)(void)) {
+  backgroundFunc = userFunction;
 }
 
 void ColorduinoObject::_IO_Init() {
@@ -419,4 +426,35 @@ void ColorduinoObject::plasma_morph() {
   paletteShift++;
   
   Colorduino.FlipPage(); // swap screen buffers to show it
+}
+
+void ColorduinoObject::Scroll_Text(String text, int speed, int tc[3]) {
+  int letters = text.length();
+  char message[letters+1];
+  text.toCharArray(message, letters+1);
+  int sidestep = 1;
+  for (int m=sidestep; m>-(6*(letters)-(sidestep)-6); m--) {
+    backgroundFunc();
+    Colorduino.FlipPage();
+    int d = 0;
+    for (int i=0; i<letters; i++) {
+      Create_Letter(sat_normal[message[i]-32], m+6*d, tc);
+      d++;
+    }
+    Colorduino.FlipPage();
+    delay(speed);
+  }
+}
+
+void ColorduinoObject::Create_Letter(int letters[][5], int drift, int tc[3]) {
+  int y = 1;
+  for (int i=6; i>-1; i--) {
+    for (int j=0; j<5; j++) {
+      int pix = pgm_read_byte(&(letters[i][j]));
+      int x = j + drift;
+      if (pix == true && x >= 0 && x <= 7)
+        Colorduino.SetPixel(x, y, tc[0], tc[1], tc[2]);
+    }
+    y++;
+  }
 }
