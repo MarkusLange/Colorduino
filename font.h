@@ -853,13 +853,14 @@ int Dot_Softcamp_right [7][5] PROGMEM =
 
 typedef int (*shape_array_t)[5];
 
-int Dot_vorlage [7][5] PROGMEM = {{0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0}};
+//int Dot_example [7][5] PROGMEM =
+//                   {{0, 0, 0, 0, 0},
+//                    {0, 0, 0, 0, 0},
+//                    {0, 0, 0, 0, 0},
+//                    {0, 0, 0, 0, 0},
+//                    {0, 0, 0, 0, 0},
+//                    {0, 0, 0, 0, 0},
+//                    {0, 0, 0, 0, 0}};
 
 shape_array_t sat_normal[] = {Dot_Clear, Dot_Attention, Dot_Marks, Dot_Cross, Dot_Praf,
                               Dot_Percent, Dot_And, Dot_Singlemark, Dot_Camp_left,

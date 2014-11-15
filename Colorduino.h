@@ -178,6 +178,7 @@ class ColorduinoObject {
     void plasma_morph();
     void Create_Letter(int letters[][5], int drift, int tc[3]);
     void Scroll_Text(String text, int speed, int tc[3]);
+    void Scroll_Text_Multicolor(String text, int speed, int* tc[], int varies);
     
     void attachbackgroundcolor (void (*)(void));
     

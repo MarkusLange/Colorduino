@@ -433,6 +433,7 @@ void ColorduinoObject::Scroll_Text(String text, int speed, int tc[3]) {
   char message[letters+1];
   text.toCharArray(message, letters+1);
   int sidestep = 1;
+  
   for (int m=sidestep; m>-(6*(letters)-(sidestep)-6); m--) {
     backgroundFunc();
     Colorduino.FlipPage();
@@ -446,8 +447,28 @@ void ColorduinoObject::Scroll_Text(String text, int speed, int tc[3]) {
   }
 }
 
+void ColorduinoObject::Scroll_Text_Multicolor(String text, int speed, int* tc[], int varies) {
+  int letters = text.length();
+  char message[letters+1];
+  text.toCharArray(message, letters+1);
+  int sidestep = 1;
+  
+  for (int m=sidestep; m>-(6*(letters)-(sidestep)-6); m--) {
+    backgroundFunc();
+    Colorduino.FlipPage();
+    int d = 0;
+    for (int i=0; i<letters; i++) {
+      Create_Letter(sat_normal[message[i]-32], m+6*d, tc[i % varies]);
+      d++;
+    }
+    Colorduino.FlipPage();
+    delay(speed);
+  }
+}
+
 void ColorduinoObject::Create_Letter(int letters[][5], int drift, int tc[3]) {
   int y = 1;
+  
   for (int i=6; i>-1; i--) {
     for (int j=0; j<5; j++) {
       int pix = pgm_read_byte(&(letters[i][j]));
