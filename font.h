@@ -5,7 +5,7 @@
   #define PROGMEM
 #endif
 
-int Dot_Clear [7][5] PROGMEM =
+uint8_t Dot_Clear [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
@@ -14,7 +14,7 @@ int Dot_Clear [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_Attention [7][5] PROGMEM =
+uint8_t Dot_Attention [7][5] PROGMEM =
                     {{0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -23,7 +23,7 @@ int Dot_Attention [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_Marks [7][5] PROGMEM =
+uint8_t Dot_Marks [7][5] PROGMEM =
                    {{0, 1, 0, 1, 0},
                     {0, 1, 0, 1, 0},
                     {0, 1, 0, 1, 0},
@@ -32,7 +32,7 @@ int Dot_Marks [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_Cross [7][5] PROGMEM =
+uint8_t Dot_Cross [7][5] PROGMEM =
                    {{0, 1, 0, 1, 0},
                     {0, 1, 0, 1, 0},
                     {1, 1, 1, 1, 1},
@@ -41,7 +41,7 @@ int Dot_Cross [7][5] PROGMEM =
                     {0, 1, 0, 1, 0},
                     {0, 1, 0, 1, 0}};
 
-int Dot_Praf [7][5] PROGMEM =
+uint8_t Dot_Praf [7][5] PROGMEM =
                    {{0, 0, 1, 0, 0},
                     {0, 1, 1, 1, 1},
                     {1, 0, 1, 0, 0},
@@ -50,7 +50,7 @@ int Dot_Praf [7][5] PROGMEM =
                     {1, 1, 1, 1, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_Percent [7][5] PROGMEM =
+uint8_t Dot_Percent [7][5] PROGMEM =
                    {{1, 1, 0, 0, 0},
                     {1, 1, 0, 0, 1},
                     {0, 0, 0, 1, 0},
@@ -59,7 +59,7 @@ int Dot_Percent [7][5] PROGMEM =
                     {1, 0, 0, 1, 1},
                     {0, 0, 0, 1, 1}};
 
-int Dot_And [7][5] PROGMEM =
+uint8_t Dot_And [7][5] PROGMEM =
                    {{0, 1, 1, 0, 0},
                     {1, 0, 0, 1, 0},
                     {1, 0, 1, 0, 0},
@@ -68,7 +68,7 @@ int Dot_And [7][5] PROGMEM =
                     {1, 0, 0, 1, 0},
                     {0, 1, 1, 0, 1}};
 
-int Dot_Singlemark [7][5] PROGMEM =
+uint8_t Dot_Singlemark [7][5] PROGMEM =
                    {{0, 1, 1, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0},
@@ -77,7 +77,7 @@ int Dot_Singlemark [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_Camp_left [7][5] PROGMEM =
+uint8_t Dot_Camp_left [7][5] PROGMEM =
                    {{0, 0, 0, 1, 0},
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0},
@@ -86,7 +86,7 @@ int Dot_Camp_left [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 1, 0}};
 
-int Dot_Camp_right [7][5] PROGMEM =
+uint8_t Dot_Camp_right [7][5] PROGMEM =
                    {{0, 1, 0, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 1, 0},
@@ -95,7 +95,7 @@ int Dot_Camp_right [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0}};
 
-int Dot_star [7][5] PROGMEM =
+uint8_t Dot_Star [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 1, 0, 0},
                     {1, 0, 1, 0, 1},
@@ -104,7 +104,7 @@ int Dot_star [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_plus [7][5] PROGMEM =
+uint8_t Dot_Plus [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -113,7 +113,7 @@ int Dot_plus [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_comma [7][5] PROGMEM =
+uint8_t Dot_Comma [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
@@ -122,7 +122,7 @@ int Dot_comma [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0}};
 
-int Dot_Minus [7][5] PROGMEM =
+uint8_t Dot_Minus [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
@@ -131,7 +131,7 @@ int Dot_Minus [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_Dot [7][5] PROGMEM =
+uint8_t Dot_Dot [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
@@ -140,7 +140,7 @@ int Dot_Dot [7][5] PROGMEM =
                     {0, 1, 1, 0, 0},
                     {0, 1, 1, 0, 0}};
 
-int Dot_Slash [7][5] PROGMEM =
+uint8_t Dot_Slash [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 1},
                     {0, 0, 0, 1, 0},
@@ -149,7 +149,7 @@ int Dot_Slash [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_Zero [7][5] PROGMEM =
+uint8_t Dot_Zero [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 1, 1},
@@ -158,7 +158,7 @@ int Dot_Zero [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_One [7][5] PROGMEM =
+uint8_t Dot_One [7][5] PROGMEM =
                    {{0, 0, 1, 0, 0},
                     {0, 1, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -167,7 +167,7 @@ int Dot_One [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 1, 1, 0}};
 
-int Dot_Two [7][5] PROGMEM =
+uint8_t Dot_Two [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {0, 0, 0, 0, 1},
@@ -176,7 +176,7 @@ int Dot_Two [7][5] PROGMEM =
                     {0, 1, 0, 0, 0},
                     {1, 1, 1, 1, 1}};
 
-int Dot_Three [7][5] PROGMEM =
+uint8_t Dot_Three [7][5] PROGMEM =
                    {{1, 1, 1, 1, 1},
                     {0, 0, 0, 1, 0},
                     {0, 0, 1, 0, 0},
@@ -185,7 +185,7 @@ int Dot_Three [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_Four [7][5] PROGMEM =
+uint8_t Dot_Four [7][5] PROGMEM =
                    {{0, 0, 0, 1, 0},
                     {0, 0, 1, 1, 0},
                     {0, 1, 0, 1, 0},
@@ -194,7 +194,7 @@ int Dot_Four [7][5] PROGMEM =
                     {0, 0, 0, 1, 0},
                     {0, 0, 0, 1, 0}};
 
-int Dot_Five [7][5] PROGMEM =
+uint8_t Dot_Five [7][5] PROGMEM =
                    {{1, 1, 1, 1, 1},
                     {1, 0, 0, 0, 0},
                     {1, 1, 1, 1, 0},
@@ -203,7 +203,7 @@ int Dot_Five [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_Six [7][5] PROGMEM =
+uint8_t Dot_Six [7][5] PROGMEM =
                    {{0, 0, 1, 1, 0},
                     {0, 1, 0, 0, 0},
                     {1, 0, 0, 0, 0},
@@ -212,7 +212,7 @@ int Dot_Six [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_Seven [7][5] PROGMEM =
+uint8_t Dot_Seven [7][5] PROGMEM =
                    {{1, 1, 1, 1, 1},
                     {0, 0, 0, 0, 1},
                     {0, 0, 0, 1, 0},
@@ -221,7 +221,7 @@ int Dot_Seven [7][5] PROGMEM =
                     {0, 1, 0, 0, 0},
                     {0, 1, 0, 0, 0}};
 
-int Dot_Eight [7][5] PROGMEM =
+uint8_t Dot_Eight [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -230,7 +230,7 @@ int Dot_Eight [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_Nine [7][5] PROGMEM =
+uint8_t Dot_Nine [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -239,7 +239,7 @@ int Dot_Nine [7][5] PROGMEM =
                     {0, 0, 0, 1, 0},
                     {0, 1, 1, 0, 0}};
 
-int Dot_DoubleDot [7][5] PROGMEM =
+uint8_t Dot_DoubleDot [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 1, 1, 0, 0},
                     {0, 1, 1, 0, 0},
@@ -248,7 +248,7 @@ int Dot_DoubleDot [7][5] PROGMEM =
                     {0, 1, 1, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_Semicolon [7][5] PROGMEM =
+uint8_t Dot_Semicolon [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 1, 1, 0, 0},
                     {0, 1, 1, 0, 0},
@@ -257,7 +257,7 @@ int Dot_Semicolon [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0}};
 
-int Dot_Arrowleft [7][5] PROGMEM =
+uint8_t Dot_Arrowleft [7][5] PROGMEM =
                    {{0, 0, 0, 1, 0},
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0},
@@ -266,7 +266,7 @@ int Dot_Arrowleft [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 1, 0}};
 
-int Dot_Equal [7][5] PROGMEM =
+uint8_t Dot_Equal [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 1, 1, 1, 1},
@@ -275,7 +275,7 @@ int Dot_Equal [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot_Arrowright [7][5] PROGMEM =
+uint8_t Dot_Arrowright [7][5] PROGMEM =
                    {{0, 1, 0, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 1, 0},
@@ -284,7 +284,7 @@ int Dot_Arrowright [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0}};
 
-int Dot_Question [7][5] PROGMEM =
+uint8_t Dot_Question [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {0, 0, 0, 0, 1},
@@ -293,7 +293,7 @@ int Dot_Question [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_At [7][5] PROGMEM =
+uint8_t Dot_At [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {0, 0, 0, 0, 1},
@@ -302,7 +302,7 @@ int Dot_At [7][5] PROGMEM =
                     {1, 0, 1, 0, 1},
                     {0, 1, 1, 1, 0}};
 ////////////////////////////////////////////
-int Dot_A [7][5] PROGMEM =
+uint8_t Dot_A [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -311,7 +311,7 @@ int Dot_A [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_B [7][5] PROGMEM =
+uint8_t Dot_B [7][5] PROGMEM =
                    {{1, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -320,7 +320,7 @@ int Dot_B [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 1, 1, 1, 0}};
 
-int Dot_C [7][5] PROGMEM =
+uint8_t Dot_C [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 0},
@@ -329,7 +329,7 @@ int Dot_C [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_D [7][5] PROGMEM =
+uint8_t Dot_D [7][5] PROGMEM =
                    {{1, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -338,7 +338,7 @@ int Dot_D [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 1, 1, 1, 0}};
 
-int Dot_E [7][5] PROGMEM =
+uint8_t Dot_E [7][5] PROGMEM =
                    {{1, 1, 1, 1, 1},
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
@@ -347,7 +347,7 @@ int Dot_E [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 1, 1, 1, 1}};
 
-int Dot_F [7][5] PROGMEM =
+uint8_t Dot_F [7][5] PROGMEM =
                    {{1, 1, 1, 1, 1},
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
@@ -356,7 +356,7 @@ int Dot_F [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0}};
 
-int Dot_G [7][5] PROGMEM =
+uint8_t Dot_G [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 0},
@@ -365,7 +365,7 @@ int Dot_G [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 1}};
 
-int Dot_H [7][5] PROGMEM =
+uint8_t Dot_H [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -374,7 +374,7 @@ int Dot_H [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_I [7][5] PROGMEM =
+uint8_t Dot_I [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -383,7 +383,7 @@ int Dot_I [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 1, 1, 0}};
 
-int Dot_J [7][5] PROGMEM =
+uint8_t Dot_J [7][5] PROGMEM =
                    {{0, 0, 1, 1, 1},
                     {0, 0, 0, 1, 0},
                     {0, 0, 0, 1, 0},
@@ -392,7 +392,7 @@ int Dot_J [7][5] PROGMEM =
                     {1, 0, 0, 1, 0},
                     {0, 1, 1, 0, 0}};
 
-int Dot_K [7][5] PROGMEM =
+uint8_t Dot_K [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 1, 0},
                     {1, 0, 1, 0, 0},
@@ -401,7 +401,7 @@ int Dot_K [7][5] PROGMEM =
                     {1, 0, 0, 1, 0},
                     {1, 0, 0, 0, 1}};
 
-int Dot_L [7][5] PROGMEM =
+uint8_t Dot_L [7][5] PROGMEM =
                    {{1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
@@ -410,7 +410,7 @@ int Dot_L [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 1, 1, 1, 1}};
 
-int Dot_M [7][5] PROGMEM =
+uint8_t Dot_M [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 1, 0, 1, 1},
                     {1, 0, 1, 0, 1},
@@ -419,7 +419,7 @@ int Dot_M [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_N [7][5] PROGMEM =
+uint8_t Dot_N [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
                     {1, 1, 0, 0, 1},
@@ -428,7 +428,7 @@ int Dot_N [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_O [7][5] PROGMEM =
+uint8_t Dot_O [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -437,7 +437,7 @@ int Dot_O [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_P [7][5] PROGMEM =
+uint8_t Dot_P [7][5] PROGMEM =
                    {{1, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -446,7 +446,7 @@ int Dot_P [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0}};
 
-int Dot_Q [7][5] PROGMEM =
+uint8_t Dot_Q [7][5] PROGMEM =
                    {{0, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -455,7 +455,7 @@ int Dot_Q [7][5] PROGMEM =
                     {1, 0, 0, 1, 0},
                     {0, 1, 1, 0, 1}};
 
-int Dot_R [7][5] PROGMEM =
+uint8_t Dot_R [7][5] PROGMEM =
                    {{1, 1, 1, 1, 0},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -464,7 +464,7 @@ int Dot_R [7][5] PROGMEM =
                     {1, 0, 0, 1, 0},
                     {1, 0, 0, 0, 1}};
 
-int Dot_S [7][5] PROGMEM =
+uint8_t Dot_S [7][5] PROGMEM =
                    {{0, 1, 1, 1, 1},
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
@@ -473,7 +473,7 @@ int Dot_S [7][5] PROGMEM =
                     {0, 0, 0, 0, 1},
                     {1, 1, 1, 1, 0}};
 
-int Dot_T [7][5] PROGMEM =
+uint8_t Dot_T [7][5] PROGMEM =
                    {{1, 1, 1, 1, 1},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -482,7 +482,7 @@ int Dot_T [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_U [7][5] PROGMEM =
+uint8_t Dot_U [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -491,7 +491,7 @@ int Dot_U [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_V [7][5] PROGMEM =
+uint8_t Dot_V [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -500,7 +500,7 @@ int Dot_V [7][5] PROGMEM =
                     {0, 1, 0, 1, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_W [7][5] PROGMEM =
+uint8_t Dot_W [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -509,7 +509,7 @@ int Dot_W [7][5] PROGMEM =
                     {1, 0, 1, 0, 1},
                     {0, 1, 0, 1, 0}};
 
-int Dot_X [7][5] PROGMEM =
+uint8_t Dot_X [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
                     {0, 1, 0, 1, 0},
@@ -518,7 +518,7 @@ int Dot_X [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_Y [7][5] PROGMEM =
+uint8_t Dot_Y [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1},
@@ -527,7 +527,7 @@ int Dot_Y [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_Z [7][5] PROGMEM =
+uint8_t Dot_Z [7][5] PROGMEM =
                    {{1, 1, 1, 1, 1},
                     {0, 0, 0, 0, 1},
                     {0, 0, 0, 1, 0},
@@ -536,7 +536,7 @@ int Dot_Z [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 1, 1, 1, 1}};
 
-int Dot_Hardcamp_left [7][5] PROGMEM =
+uint8_t Dot_Hardcamp_left [7][5] PROGMEM =
                    {{1, 1, 1, 0, 0},
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
@@ -545,7 +545,7 @@ int Dot_Hardcamp_left [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 1, 1, 0, 0}};
 
-int Dot_Yn [7][5] PROGMEM =
+uint8_t Dot_Yn [7][5] PROGMEM =
                    {{1, 0, 0, 0, 1},
                     {0, 1, 0, 1, 0},
                     {1, 1, 1, 1, 1},
@@ -554,7 +554,7 @@ int Dot_Yn [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_Hardcamp_right [7][5] PROGMEM =
+uint8_t Dot_Hardcamp_right [7][5] PROGMEM =
                    {{0, 0, 1, 1, 1},
                     {0, 0, 0, 0, 1},
                     {0, 0, 0, 0, 1},
@@ -563,7 +563,7 @@ int Dot_Hardcamp_right [7][5] PROGMEM =
                     {0, 0, 0, 0, 1},
                     {0, 0, 1, 1, 1}};
 
-int Dot_Hat [7][5] PROGMEM =
+uint8_t Dot_Hat [7][5] PROGMEM =
                    {{0, 0, 1, 0, 0},
                     {0, 1, 0, 1, 0},
                     {1, 0, 0, 0, 1},
@@ -572,7 +572,7 @@ int Dot_Hat [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 
-int Dot__ [7][5] PROGMEM =
+uint8_t Dot__ [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
@@ -581,7 +581,7 @@ int Dot__ [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {1, 1, 1, 1, 1}};
 
-int Dot_Backslash [7][5] PROGMEM =
+uint8_t Dot_Backslash [7][5] PROGMEM =
                    {{0, 1, 0, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 1, 0},
@@ -590,7 +590,7 @@ int Dot_Backslash [7][5] PROGMEM =
                     {0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0}};
 /////////////////////////////////////////////////  
-int Dot_a [7][5] PROGMEM =
+uint8_t Dot_a [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 1, 1, 1, 0},
@@ -599,7 +599,7 @@ int Dot_a [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 1}};
 
-int Dot_b [7][5] PROGMEM =
+uint8_t Dot_b [7][5] PROGMEM =
                    {{1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
                     {1, 0, 1, 1, 0},
@@ -608,7 +608,7 @@ int Dot_b [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_c [7][5] PROGMEM =
+uint8_t Dot_c [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 1, 1, 1, 0},
@@ -617,7 +617,7 @@ int Dot_c [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_d [7][5] PROGMEM =
+uint8_t Dot_d [7][5] PROGMEM =
                    {{0, 0, 0, 0, 1},
                     {0, 0, 0, 0, 1},
                     {0, 1, 1, 0, 1},
@@ -626,7 +626,7 @@ int Dot_d [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 1}};
 
-int Dot_e [7][5] PROGMEM =
+uint8_t Dot_e [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 1, 1, 1, 0},
@@ -635,7 +635,7 @@ int Dot_e [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {0, 1, 1, 1, 0}};
 
-int Dot_f [7][5] PROGMEM =
+uint8_t Dot_f [7][5] PROGMEM =
                    {{0, 0, 1, 1, 0},
                     {0, 1, 0, 0, 1},
                     {0, 1, 0, 0, 0},
@@ -644,7 +644,7 @@ int Dot_f [7][5] PROGMEM =
                     {0, 1, 0, 0, 0},
                     {0, 1, 0, 0, 0}};
 
-int Dot_g [7][5] PROGMEM =
+uint8_t Dot_g [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 1, 1, 1, 1},
                     {1, 0, 0, 0, 1},
@@ -653,7 +653,7 @@ int Dot_g [7][5] PROGMEM =
                     {0, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_h [7][5] PROGMEM =
+uint8_t Dot_h [7][5] PROGMEM =
                    {{1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
                     {1, 0, 1, 1, 0},
@@ -662,7 +662,7 @@ int Dot_h [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_i [7][5] PROGMEM =
+uint8_t Dot_i [7][5] PROGMEM =
                    {{0, 0, 1, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 1, 1, 0, 0},
@@ -671,7 +671,7 @@ int Dot_i [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 1, 1, 0}};
 
-int Dot_j [7][5] PROGMEM =
+uint8_t Dot_j [7][5] PROGMEM =
                    {{0, 0, 0, 1, 0},
                     {0, 0, 0, 0, 0},
                     {0, 0, 1, 1, 0},
@@ -680,7 +680,7 @@ int Dot_j [7][5] PROGMEM =
                     {1, 0, 0, 1, 0},
                     {0, 1, 1, 0, 0}};
 
-int Dot_k [7][5] PROGMEM =
+uint8_t Dot_k [7][5] PROGMEM =
                    {{1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 1, 0},
@@ -689,7 +689,7 @@ int Dot_k [7][5] PROGMEM =
                     {1, 0, 1, 0, 0},
                     {1, 0, 0, 1, 0}};
 
-int Dot_l [7][5] PROGMEM =
+uint8_t Dot_l [7][5] PROGMEM =
                    {{0, 1, 1, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -698,7 +698,7 @@ int Dot_l [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 1, 1, 0}};
 
-int Dot_m [7][5] PROGMEM =
+uint8_t Dot_m [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 1, 0, 1, 0},
@@ -707,7 +707,7 @@ int Dot_m [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_n [7][5] PROGMEM =
+uint8_t Dot_n [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 0, 1, 1, 0},
@@ -716,7 +716,7 @@ int Dot_n [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {1, 0, 0, 0, 1}};
 
-int Dot_o [7][5] PROGMEM =
+uint8_t Dot_o [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 1, 1, 1, 0},
@@ -725,7 +725,7 @@ int Dot_o [7][5] PROGMEM =
                     {1, 0, 0, 0, 1},
                     {0, 1, 1, 1, 0}};
 
-int Dot_p [7][5] PROGMEM =
+uint8_t Dot_p [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 1, 1, 1, 0},
@@ -734,7 +734,7 @@ int Dot_p [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0}};
 
-int Dot_q [7][5] PROGMEM =
+uint8_t Dot_q [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 1, 1, 0, 1},
@@ -743,7 +743,7 @@ int Dot_q [7][5] PROGMEM =
                     {0, 0, 0, 0, 1},
                     {0, 0, 0, 0, 1}};
 
-int Dot_r [7][5] PROGMEM =
+uint8_t Dot_r [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 0, 1, 1, 0},
@@ -752,7 +752,7 @@ int Dot_r [7][5] PROGMEM =
                     {1, 0, 0, 0, 0},
                     {1, 0, 0, 0, 0}};
 
-int Dot_s [7][5] PROGMEM =
+uint8_t Dot_s [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {0, 1, 1, 1, 0},
@@ -761,7 +761,7 @@ int Dot_s [7][5] PROGMEM =
                     {0, 0, 0, 0, 1},
                     {1, 1, 1, 1, 0}};
 
-int Dot_t [7][5] PROGMEM =
+uint8_t Dot_t [7][5] PROGMEM =
                    {{0, 1, 0, 0, 0},
                     {0, 1, 0, 0, 0},
                     {1, 1, 1, 0, 0},
@@ -770,7 +770,7 @@ int Dot_t [7][5] PROGMEM =
                     {0, 1, 0, 0, 1},
                     {0, 0, 1, 1, 0}};
 
-int Dot_u [7][5] PROGMEM =
+uint8_t Dot_u [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 0, 0, 0, 1},
@@ -779,7 +779,7 @@ int Dot_u [7][5] PROGMEM =
                     {1, 0, 0, 1, 1},
                     {0, 1, 1, 0, 1}};
 
-int Dot_v [7][5] PROGMEM =
+uint8_t Dot_v [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 0, 0, 0, 1},
@@ -788,7 +788,7 @@ int Dot_v [7][5] PROGMEM =
                     {0, 1, 0, 1, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_w [7][5] PROGMEM =
+uint8_t Dot_w [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 0, 0, 0, 1},
@@ -797,7 +797,7 @@ int Dot_w [7][5] PROGMEM =
                     {1, 0, 1, 0, 1},
                     {0, 1, 0, 1, 0}};
 
-int Dot_x [7][5] PROGMEM =
+uint8_t Dot_x [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 0, 0, 0, 1},
@@ -806,7 +806,7 @@ int Dot_x [7][5] PROGMEM =
                     {0, 1, 0, 1, 0},
                     {1, 0, 0, 0, 1}};
 
-int Dot_y [7][5] PROGMEM =
+uint8_t Dot_y [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 0, 0, 0, 1},
@@ -815,7 +815,7 @@ int Dot_y [7][5] PROGMEM =
                     {0, 0, 0, 0, 1},
                     {0, 1, 1, 1, 1}};
 
-int Dot_z [7][5] PROGMEM =
+uint8_t Dot_z [7][5] PROGMEM =
                    {{0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0},
                     {1, 1, 1, 1, 1},
@@ -824,7 +824,7 @@ int Dot_z [7][5] PROGMEM =
                     {0, 1, 0, 0, 0},
                     {1, 1, 1, 1, 1}};
 
-int Dot_Softcamp_left [7][5] PROGMEM =
+uint8_t Dot_Softcamp_left [7][5] PROGMEM =
                    {{0, 0, 0, 1, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -833,7 +833,7 @@ int Dot_Softcamp_left [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 0, 1, 0}};
 
-int Dot_vertical [7][5] PROGMEM =
+uint8_t Dot_vertical [7][5] PROGMEM =
                    {{0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -842,7 +842,7 @@ int Dot_vertical [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0}};
 
-int Dot_Softcamp_right [7][5] PROGMEM =
+uint8_t Dot_Softcamp_right [7][5] PROGMEM =
                    {{0, 1, 0, 0, 0},
                     {0, 0, 1, 0, 0},
                     {0, 0, 1, 0, 0},
@@ -851,9 +851,9 @@ int Dot_Softcamp_right [7][5] PROGMEM =
                     {0, 0, 1, 0, 0},
                     {0, 1, 0, 0, 0}};
 
-typedef int (*shape_array_t)[5];
+typedef uint8_t (*shape_array_t)[5];
 
-//int Dot_example [7][5] PROGMEM =
+//uint8_t Dot_example [7][5] PROGMEM =
 //                   {{0, 0, 0, 0, 0},
 //                    {0, 0, 0, 0, 0},
 //                    {0, 0, 0, 0, 0},
@@ -864,7 +864,7 @@ typedef int (*shape_array_t)[5];
 
 shape_array_t sat_normal[] = {Dot_Clear, Dot_Attention, Dot_Marks, Dot_Cross, Dot_Praf,
                               Dot_Percent, Dot_And, Dot_Singlemark, Dot_Camp_left,
-                              Dot_Camp_right, Dot_star, Dot_plus, Dot_comma, Dot_Minus,
+                              Dot_Camp_right, Dot_Star, Dot_Plus, Dot_Comma, Dot_Minus,
                               Dot_Dot, Dot_Slash,
                               
                               Dot_Zero, Dot_One, Dot_Two, Dot_Three, Dot_Four, Dot_Five,

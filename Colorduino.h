@@ -176,7 +176,7 @@ class ColorduinoObject {
     void HSVtoRGB(void *vRGB, void *vHSV);
     void morphinit();
     void plasma_morph();
-    void Create_Letter(int letters[][5], int drift, int tc[3]);
+    void Create_Letter(uint8_t letters[][5], int drift, int tc[3]);
     void Scroll_Text(String text, int speed, int tc[3]);
     void Scroll_Text_Multicolor(String text, int speed, int* tc[], int varies);
     
