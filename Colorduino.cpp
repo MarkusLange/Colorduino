@@ -440,15 +440,17 @@ void ColorduinoObject::attachbackgroundcolor(void (*userFunction)(void)) {
 
 void ColorduinoObject::Scroll_Text_inverted(String text, int speed) {
 	int tc[] = {0,0,0};
+	//Serial.println("------");
 	Scroll_Text(text, speed, tc, false);
 }
+
+int sidestep = 1;
 
 void ColorduinoObject::Scroll_Text(String text, int speed, int tc[3], boolean normal) {
 	int m, i;
   int letters = text.length();
-  char message[letters+1];
-  text.toCharArray(message, letters+1);
-  int sidestep = 1;
+  char message[letters + 1];
+  text.toCharArray(message, letters + 1);
     
   for (m = sidestep; m > -(6*(letters)-(sidestep)-6); m--) {
     backgroundFunc();
@@ -471,7 +473,6 @@ void ColorduinoObject::Scroll_Text_Multicolor(String text, int speed, int* tc[],
   int letters = text.length();
   char message[letters + 1];
   text.toCharArray(message, letters + 1);
-  int sidestep = 1;
   
   for (m = sidestep; m > -(6*(letters)-(sidestep)-6); m--) {
     backgroundFunc();
@@ -489,13 +490,25 @@ void ColorduinoObject::Scroll_Text_Multicolor(String text, int speed, int* tc[],
 void ColorduinoObject::Create_inverted_Letter(uint8_t letters[][5], int drift) {
 	int i, j;
   int y = 1;
+  //Groundline Black
   for (int k = 0; k < 8; k++)
   	Colorduino.SetPixel(k, 0, 0, 0, 0);
-  
-  if (drift == 1)	{
-  	for (int k = 0; k < 8; k++)
-  		Colorduino.SetPixel(0, k, 0, 0, 0);
+  	
+  //Serial.println(drift);
+  //Firstline Black the 1 block Drift
+  if (drift == 1) {
+//  	for (int l = drift; l > 0 ; i--) {
+  	  for (int k = 0; k < 8; k++)
+  		  Colorduino.SetPixel(0, k, 0, 0, 0);
+//  	}
   }
+  
+//  if (drift == 1) {
+////  	for (int l = drift; l > 0 ; i--) {
+//  	  for (int k = 0; k < 8; k++)
+//  		  Colorduino.SetPixel(0, k, 0, 0, 0);
+////  	}
+//  }
   
   for (i = 6; i > -1; i--) {
     for (j = 0; j < 6; j++) {
