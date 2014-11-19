@@ -177,8 +177,7 @@ class ColorduinoObject {
     void morphinit();
     void plasma_morph();
     void Create_Letter(uint8_t letters[][5], int drift, int tc[3]);
-    void Create_inverted_Letter(uint8_t letters[][5], int drift);
-    void Scroll_Text(String text, int speed, int tc[3], boolean normal = true);
+    void Scroll_Text(String text, int speed, int tc[3]);
     void Scroll_Text_inverted(String text, int speed);
     void Scroll_Text_Multicolor(String text, int speed, int* tc[], int varies);
     

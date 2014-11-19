@@ -1,16 +1,10 @@
-2014/17/11 SCL v1.2.8
-added support for inverted Scroll Text with example
-
-2014/16/11 SCL v1.2.7
-reduce the memoryfootprint of roundabout 3k bye usage of Scroll_text by changing the data type
-
-2014/15/11 SCL v1.2.6
-add Multicolor support with example
+2014/19/11 SCL v1.2.6
+fix brocken functions, cleaning some parts inside the colorduino.cpp
 
 2014/14/11 SCL v1.2.5
 move some parts from the .h to the .cpp for some more overview
-move the parts from the morph example in the library too
-add support for Font output to show text running on the LCD, not portet inside the library yet.
+move the parts from the morph example inside zhe  library too
+add support for Font output to show text running on the LCD and example
 
 2012/07/12 SCL v1.2.4
 fixed bug in Mega support introduced in 1.2.3 (thanks wiltwong!)

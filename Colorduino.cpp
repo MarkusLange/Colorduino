@@ -21,14 +21,16 @@
 #include "Colorduino.h"
 #include "font.h"
 
-/****************************************************
-the LED Hardware operate functions zone
-****************************************************/
-
 void ColorduinoObject::LED_Delay(unsigned char i) {
   unsigned int y;
   y = i * 10;
   while(y--);
+}
+
+void (*backgroundFunc)(void);
+
+void ColorduinoObject::attachbackgroundcolor(void (*userFunction)(void)) {
+  backgroundFunc = userFunction;
 }
 
 void ColorduinoObject::_IO_Init() {
@@ -150,11 +152,79 @@ void ColorduinoObject::open_line(unsigned char x) {
 	}
 }
 
+void ColorduinoObject::SetPixel(unsigned char x, unsigned char y, unsigned char r, unsigned char g, unsigned char b) {
+  PixelRGB *p = GetPixel(x, y);
+  p->r = r;
+  p->g = g;
+  p->b = b;
+}
+
 void ColorduinoObject::Init() {
   _IO_Init();           //Init IO
   _LED_Init();          //Init LED Hardware
   _TC_Init();           //Init Timer/Counter
   morphinit_bool = false;
+}
+
+void ColorduinoObject::FlipPage() {
+  cli();
+  // swap frame buffers
+  PixelRGB *tmp = curDrawFrame;
+  curDrawFrame  = curWriteFrame;
+  curWriteFrame = tmp;
+  sei();
+}
+
+// compensate for relative intensity differences in R/G/B brightness
+// array of 6-bit base values for RGB (0~63)
+// wbval[0]=red
+// wbval[1]=green
+// wbval[2]=blue
+void ColorduinoObject::SetWhiteBal(unsigned char wbval[3]) {
+	unsigned char k, i, j;
+	
+  LED_LAT_CLR;
+  LED_SLB_CLR;
+  
+  for(k = 0; k < ColorduinoScreenHeight; k++) {
+    for(i = 3; i > 0; i--) {
+      unsigned char temp = wbval[i - 1]<<2;
+      for(j = 0; j < 6; j++) {
+        if(temp &0x80)
+          LED_SDA_SET;
+        else
+          LED_SDA_CLR;
+        
+        temp = temp << 1;
+        LED_SCL_CLR;
+        LED_SCL_SET;
+    	}
+  	}
+  }
+  
+  LED_SLB_SET;
+}
+
+/****************************************************
+Name: ColorFill
+Function:  Fill the frame with a color
+Parameter: R: the value of RED.   Range:RED 0~255
+           G: the value of GREEN. Range:RED 0~255
+           B: the value of BLUE.  Range:RED 0~255
+****************************************************/
+void ColorduinoObject::ColorFill(unsigned char R,unsigned char G,unsigned char B) {
+	unsigned char y, x;
+	
+  PixelRGB *p = GetPixel(0,0);
+  for (y = 0; y < ColorduinoScreenWidth; y++) {
+    for(x = 0; x < ColorduinoScreenHeight; x++) {
+      p->r = R;
+      p->g = G;
+      p->b = B;
+      p++;
+    }
+  }
+  FlipPage();
 }
 
 // global instance
@@ -195,63 +265,23 @@ ColorduinoObject Colorduino;
 #endif
 
 /****************************************************
+the LED Hardware operate functions zone
+****************************************************/
+
+/****************************************************
 the LED datas operate functions zone
 ****************************************************/
 
-void ColorduinoObject::FlipPage() {
-  cli();
-  // swap frame buffers
-  PixelRGB *tmp = curDrawFrame;
-  curDrawFrame  = curWriteFrame;
-  curWriteFrame = tmp;
-  sei();
-}
-
-void ColorduinoObject::SetPixel(unsigned char x, unsigned char y, unsigned char r, unsigned char g, unsigned char b) {
-  PixelRGB *p = GetPixel(x, y);
-  p->r = r;
-  p->g = g;
-  p->b = b;
-}
-
-// compensate for relative intensity differences in R/G/B brightness
-// array of 6-bit base values for RGB (0~63)
-// wbval[0]=red
-// wbval[1]=green
-// wbval[2]=blue
-void ColorduinoObject::SetWhiteBal(unsigned char wbval[3]) {
-	unsigned char k, i, j;
-  LED_LAT_CLR;
-  LED_SLB_CLR;
-  
-  for(k = 0; k < ColorduinoScreenHeight; k++) {
-    for(i = 3; i > 0; i--) {
-      unsigned char temp = wbval[i-1] << 2;
-      
-      for(j = 0; j < 6; j++) {
-        if(temp &0x80)
-          LED_SDA_SET;
-        else
-          LED_SDA_CLR;
-        
-        temp = temp << 1;
-        LED_SCL_CLR;
-        LED_SCL_SET;
-    	}
-  	}
-  }
-  LED_SLB_SET;
-}
-
 void ColorduinoObject::run() {
 	unsigned char x, p;
+	
   LED_SLB_SET;
   LED_LAT_CLR;
-  PixelRGB *pixel = GetDrawPixel(0,line);
+  PixelRGB *pixel = GetDrawPixel(0, line);
   
   for(x = 0; x < ColorduinoScreenWidth; x++) {
-    
     unsigned char temp = pixel->b;
+    
     for(p = 0; p < ColorduinoBitsPerColor; p++) {
       if(temp & 0x80)
 				LED_SDA_SET;
@@ -262,6 +292,7 @@ void ColorduinoObject::run() {
       LED_SCL_CLR;
       LED_SCL_SET;
     }
+    
     temp = pixel->g;
     for(p = 0; p < ColorduinoBitsPerColor; p++) {
       if(temp & 0x80)
@@ -273,6 +304,7 @@ void ColorduinoObject::run() {
       LED_SCL_CLR;
       LED_SCL_SET;
     }
+    
     temp = pixel->r;
     for(p = 0; p < ColorduinoBitsPerColor; p++) {
       if(temp & 0x80)
@@ -290,33 +322,12 @@ void ColorduinoObject::run() {
   LED_LAT_CLR;
 }
 
-/****************************************************
-Name: ColorFill
-Function:  Fill the frame with a color
-Parameter: R: the value of RED.   Range:RED 0~255
-           G: the value of GREEN. Range:RED 0~255
-           B: the value of BLUE.  Range:RED 0~255
-****************************************************/
-void ColorduinoObject::ColorFill(unsigned char R,unsigned char G,unsigned char B) {
-	unsigned char x, y;
-  PixelRGB *p = GetPixel(0,0);
-  
-  for (y = 0; y < ColorduinoScreenWidth; y++) {
-    for(x = 0; x < ColorduinoScreenHeight; x++) {
-      p->r = R;
-      p->g = G;
-      p->b = B;
-      p++;
-    }
-  }
-  FlipPage();
-}
-
 //generate the plasma once
 void ColorduinoObject::morphinit() {
+	unsigned char y, x;
+	unsigned char bcolor;
+	
   // start with morphing plasma, but allow going to color cycling if desired.
-  unsigned char bcolor;
-  unsigned char x, y;
   paletteShift = 128000;
   
   for(y = 0; y < ColorduinoScreenHeight; y++) {
@@ -407,7 +418,7 @@ void ColorduinoObject::plasma_morph() {
   float value;
   ColorRGB colorRGB;
   ColorHSV colorHSV;
-  
+	
 	if(!morphinit_bool) {
 		morphinit();
 	}
@@ -432,94 +443,47 @@ void ColorduinoObject::plasma_morph() {
   Colorduino.FlipPage(); // swap screen buffers to show it
 }
 
-void (*backgroundFunc)(void);
-
-void ColorduinoObject::attachbackgroundcolor(void (*userFunction)(void)) {
-  backgroundFunc = userFunction;
-}
-
-void ColorduinoObject::Scroll_Text_inverted(String text, int speed) {
-	int tc[] = {0,0,0};
-	//Serial.println("------");
-	Scroll_Text(text, speed, tc, false);
-}
-
-int sidestep = 1;
-
-void ColorduinoObject::Scroll_Text(String text, int speed, int tc[3], boolean normal) {
-	int m, i;
+void ColorduinoObject::Scroll_Text(String text, int speed, int tc[3]) {
+	int m, i, d;
   int letters = text.length();
-  char message[letters + 1];
-  text.toCharArray(message, letters + 1);
-    
+  char message[letters+1];
+  text.toCharArray(message, letters+1);
+  int sidestep = 1;
+  
   for (m = sidestep; m > -(6*(letters)-(sidestep)-6); m--) {
+  	d = 0;
     backgroundFunc();
     Colorduino.FlipPage();
-    int d = 0;
-    for (i = 0; i < letters; i++) {
-    	if (normal)
-      	Create_Letter(sat_normal[message[i] - 32], m + 6*d, tc);
-      else
-      	Create_inverted_Letter(sat_normal[message[i] - 32], m + 6*d);
+    
+    for (i = 0; i<letters; i++) {
+      Create_Letter(sat_normal[message[i]-32], m+6*d, tc);
       d++;
     }
+    
     Colorduino.FlipPage();
     delay(speed);
   }
 }
 
 void ColorduinoObject::Scroll_Text_Multicolor(String text, int speed, int* tc[], int varies) {
-	int m, i;
+	int m, i, d;
   int letters = text.length();
   char message[letters + 1];
   text.toCharArray(message, letters + 1);
+  int sidestep = 1;
   
   for (m = sidestep; m > -(6*(letters)-(sidestep)-6); m--) {
+  	d = 0;
     backgroundFunc();
     Colorduino.FlipPage();
-    int d = 0;
+    
     for (i = 0; i < letters; i++) {
       Create_Letter(sat_normal[message[i] - 32], m + 6*d, tc[i % varies]);
       d++;
     }
+    
     Colorduino.FlipPage();
     delay(speed);
-  }
-}
-
-void ColorduinoObject::Create_inverted_Letter(uint8_t letters[][5], int drift) {
-	int i, j;
-  int y = 1;
-  //Groundline Black
-  for (int k = 0; k < 8; k++)
-  	Colorduino.SetPixel(k, 0, 0, 0, 0);
-  	
-  //Serial.println(drift);
-  //Firstline Black the 1 block Drift
-  if (drift == 1) {
-//  	for (int l = drift; l > 0 ; i--) {
-  	  for (int k = 0; k < 8; k++)
-  		  Colorduino.SetPixel(0, k, 0, 0, 0);
-//  	}
-  }
-  
-//  if (drift == 1) {
-////  	for (int l = drift; l > 0 ; i--) {
-//  	  for (int k = 0; k < 8; k++)
-//  		  Colorduino.SetPixel(0, k, 0, 0, 0);
-////  	}
-//  }
-  
-  for (i = 6; i > -1; i--) {
-    for (j = 0; j < 6; j++) {
-      uint8_t pix = pgm_read_byte(&(letters[i][j]));
-      uint8_t x = j + drift;
-      if (j == 5)
-      	pix = false;
-      if (pix == false && x >= 0 && x <= 7)
-        Colorduino.SetPixel(x, y, 0, 0, 0);
-    }
-    y++;
   }
 }
 
@@ -530,10 +494,55 @@ void ColorduinoObject::Create_Letter(uint8_t letters[][5], int drift, int tc[3])
   for (i = 6; i > -1; i--) {
     for (j = 0; j < 5; j++) {
       uint8_t pix = pgm_read_byte(&(letters[i][j]));
-      uint8_t x = j + drift;
-      if (pix == true && x >= 0 && x <= 7)
+      int x = j + drift;
+      if (pix == true && x >= 0 && x <= 7) {
         Colorduino.SetPixel(x, y, tc[0], tc[1], tc[2]);
+      }
     }
     y++;
+  }
+}
+
+void ColorduinoObject::Scroll_Text_inverted(String text, int speed) {
+	int m, t, i, j, pix, d, x, y;
+	int sidestep = 1;
+	
+  int letters = text.length();
+  char message[letters + 1];
+  text.toCharArray(message, letters + 1);
+  
+  for (m = sidestep; m > -(6*(letters)-(sidestep)-6); m--) {
+  	d = 0;
+    backgroundFunc();
+    Colorduino.FlipPage();
+    
+    for (int k = 0; k < 8; k++)
+  	  Colorduino.SetPixel(k, 0, 0, 0, 0);
+  	
+    if (m == sidestep) {
+  	  for (int k = 0; k < 8; k++)
+  		  Colorduino.SetPixel(0, k, 0, 0, 0);
+    }
+    
+    for (t = 0; t < letters; t++) {
+    	y = 1;
+      for (i = 6; i > -1; i--) {
+        for (j = 0; j < 6; j++) {
+          if (j == 5)
+          	pix = false;
+          else
+            pix = pgm_read_byte(&(sat_normal[message[t] - 32][i][j]));
+          x = j + m + 6*d;
+          if (pix == false && x >= 0 && x <= 7) {
+            Colorduino.SetPixel(x, y, 0, 0, 0);
+          }
+        }
+        y++;
+      }
+      d++;
+    }
+    
+    Colorduino.FlipPage();
+    delay(speed);
   }
 }
